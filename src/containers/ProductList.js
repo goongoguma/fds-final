@@ -23,13 +23,14 @@ export default class ProductList extends Component {
   }
 
   render() {
-    const { products } = this.state;
+    const { products, loading } = this.state;
     // map에서 객체를 바로 반환하기 위해서 ({})를 사용
     const productsList = products.map(p => ({
       title: p.title,
       id: p.id,
       imgURL: p.mainImgUrl,
     }));
-    return <ProductListView products={productsList} />;
+    // 서버로부터 받아온 데이터들을 presentational component인 ProductListView에서 화면을 그려주기 위해 보낸다.
+    return <ProductListView loading={loading} products={productsList} />;
   }
 }

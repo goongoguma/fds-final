@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import withLoading from '../hoc/withLoading';
 
 // 상품 목록 배열 데이터를 받아서 화면을 그려주는 컴포넌트
-export default class ProductListView extends Component {
+class ProductListView extends Component {
   static defaultProps = {
     // 서버로부터 받아온 상품 목록 데이터
     products: [
@@ -28,3 +29,5 @@ export default class ProductListView extends Component {
     );
   }
 }
+
+export default withLoading(ProductListView);
