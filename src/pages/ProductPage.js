@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import ProductDetailView from '../components/ProductDetailView';
+import ProductDetail from '../containers/ProductDetail';
 
 export default class ProductPage extends Component {
   render() {
     return (
       <div>
-        <ProductDetailView />
+        <ProductDetail />
       </div>
     );
   }
