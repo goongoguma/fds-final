@@ -16,12 +16,27 @@ export default class ProductDetail extends Component {
       detailImgUrls: [],
       description: 0,
       loading: true,
+      options: [
+        // "options": [
+        //   {
+        //     "id": 1,
+        //     "productId": 1,
+        //     "title": "ASUS LAPTOP",
+        //     "price": 80
+        //   },
+        // ]
+      ],
     };
   }
 
   async componentDidMount() {
     const { productId } = this.props;
-    const { data: product } = await api.get('/products/' + productId);
+    const { data: product } = await api.get('/products/' + productId, {
+      params: {
+        // options 불러오기,
+        _embed: 'options',
+      },
+    });
     this.setState({
       ...product,
       loading: false,

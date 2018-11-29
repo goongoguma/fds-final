@@ -8,11 +8,31 @@ export default class ProductDetailView extends Component {
     description: '',
     mainImgUrl: '',
     detailImgUrls: [],
+    options: [
+      //   {
+      //     "id": 1,
+      //     "productId": 1,
+      //     "title": "ASUS LAPTOP",
+      //     "price": 80
+      //   },
+    ],
   };
   render() {
-    const { id, title, description, mainImgUrl, detailImgUrls } = this.props;
+    const {
+      id,
+      title,
+      description,
+      mainImgUrl,
+      detailImgUrls,
+      options,
+    } = this.props;
     return (
       <div>
+        <select>
+          {options.map(o => (
+            <option value={o.id}>{o.title}</option>
+          ))}
+        </select>
         <div>{id}</div>
         <div>{title}</div>
         <div>{description}</div>
