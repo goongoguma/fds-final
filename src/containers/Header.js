@@ -1,14 +1,8 @@
-import React from 'react';
 import HeaderView from '../components/HeaderView';
-import { withUser, UserConsumer } from '../contexts/UserContext';
-import { Header } from 'semantic-ui-react';
+import { withUser } from '../contexts/UserContext';
+// 리액터 라우터에 내장되어있는 hoc
+import { withRouter } from 'react-router-dom';
 
 // Provider와 연동이 되는 컴포넌트
-export default function Header(props) {
-  // userconsumer는 provider에서 유저 정보를 가져오고싶을때 사용
-  return (
-    <UserConsumer>
-      {value => <HeaderView key={value.username} {...value} />}
-    </UserConsumer>
-  );
-}
+export default withRouter(withUser(HeaderView));
+// withRouter를 통해 match, history, location prop들을 받게된다.
